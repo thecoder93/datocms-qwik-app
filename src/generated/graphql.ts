@@ -2436,7 +2436,7 @@ export type FocalPoint = {
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { __typename?: 'Query', allProducts: Array<{ __typename?: 'ProductRecord', id: string, name?: string | null, _status: ItemStatus, _firstPublishedAt?: string | null }>, _allProductsMeta: { __typename?: 'CollectionMetadata', count: number } };
+export type Product = { __typename?: 'Query', allProducts: Array<{ __typename?: 'ProductRecord', id: string, name?: string | null, _status: ItemStatus, _firstPublishedAt?: string | null }>, _allProductsMeta: { __typename?: 'CollectionMetadata', count: number } };
 
 
 export const Document = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"_status"}},{"kind":"Field","name":{"kind":"Name","value":"_firstPublishedAt"}}]}},{"kind":"Field","name":{"kind":"Name","value":"_allProductsMeta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"count"}}]}}]}}]} as unknown as DocumentNode<Query, QueryVariables>;

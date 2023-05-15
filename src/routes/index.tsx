@@ -11,9 +11,12 @@ export default component$(() => {
   
   return (
     <>
-    <div>
-      {JSON.stringify(productSignal.value)}
-      </div>
+      {productSignal.value.allProducts.map((product) => (
+        <div key={product.id}>
+          <h1>{product.name}</h1>
+          <p>{product.id}</p>
+        </div>
+      ))}
       <div role="presentation" class="ellipsis"></div>
       <div role="presentation" class="ellipsis ellipsis-purple"></div>
 
@@ -23,8 +26,7 @@ export default component$(() => {
           <br /> on me
         </h3>
       </div>
-    </>
-  );
+    </>  );
 });
 
 export const head: DocumentHead = {
