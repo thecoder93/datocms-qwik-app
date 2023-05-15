@@ -3,7 +3,8 @@ import { isBrowser } from '@builder.io/qwik/build';
 
 
 type Options = {method: string, headers: Record<string, string>; body: string };
-
+const BASE_URL_GQ = import.meta.env.VITE_GRAPHQL_DATOCMS_URL
+const API_TOKEN = import.meta.env.VITE_DATOCMS_API_TOKEN
 
 const request = async(url: string, options: Options) => {
   try {
@@ -27,7 +28,7 @@ const request = async(url: string, options: Options) => {
 };
 
 const executeOnTheServer = server$(async (options: Options) => {
-  return request('https://graphql.datocms.com/', options); //TODO Change to the real URL
+  return request(BASE_URL_GQ, options); 
 });
 
 export const execute = async<T>( query: string): Promise<T> => {
@@ -35,12 +36,11 @@ export const execute = async<T>( query: string): Promise<T> => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${import.meta.env.VITE_DATOCMS_API_TOKEN}`
+            Authorization: `Bearer ${API_TOKEN}`
         },
         body: JSON.stringify({ query })
     }
-     //TODO Change to the real URL
-  const response: T = isBrowser ? await request('https://graphql.datocms.com/', options) : await executeOnTheServer(options);
+  const response: T = isBrowser ? await request(BASE_URL_GQ, options) : await executeOnTheServer(options);
 
   return response;
 };
