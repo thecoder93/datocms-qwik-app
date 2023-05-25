@@ -1,7 +1,7 @@
 schema:
   - https://graphql.datocms.com:
       headers:
-        Authorization: "9ae60440c424956271ed068125d6b6"
+        Authorization: $VITE_DATOCMS_API_TOKEN
 documents:
   - 'src/**/*.{ts,tsx}'
   - '!src/generated/*'
